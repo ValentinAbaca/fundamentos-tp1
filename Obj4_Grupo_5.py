@@ -1,4 +1,3 @@
-#Legajo = 112088  - Nombre y Apellido = Valentin Abaca
 from tkinter import *
 from tkinter import messagebox
 
