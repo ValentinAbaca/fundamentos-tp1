@@ -6,7 +6,7 @@ def crear_ventana_login():
     root.title("Login grupo 5")
     root.geometry("300x130")
     root.resizable(0,0)
-    #root.iconbitmap("icono.ico")
+    root.iconbitmap("icono.ico")
     root.config(bg="steelblue")
     return root
 
