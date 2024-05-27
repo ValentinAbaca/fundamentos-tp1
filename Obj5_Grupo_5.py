@@ -7,7 +7,7 @@ def crear_ventana_login():
     root.title("Login grupo 5")
     root.geometry("300x130")
     root.resizable(0,0)
-    #root.iconbitmap("icono.ico")
+    root.iconbitmap("icono.ico")
     root.config(bg="steelblue")
     return root
 
@@ -16,22 +16,9 @@ def crear_ventana_agregar():
     root.title("Agregar usuario")
     root.geometry("300x130")
     root.resizable(0,0)
-    #root.iconbitmap("icono.ico")
+    root.iconbitmap("icono.ico")
     root.config(bg="steelblue")
     return root
-
-def ventana_agregar(diccionario):
-    root = crear_ventana_agregar()
-    agregar_frame = crear_frame(root)
-    label_crear_user = crear_label(agregar_frame, "Usuario Alumno:", fila=0, columna=0, padx=5, pady=5, posicion="w")
-    input_crear_user = crear_input(agregar_frame, fila=0, columna=1, padx=5, pady=5)
-
-    label_crear_clave = crear_label(agregar_frame, "Clave:", fila=1, columna=0, padx=5, pady=5, posicion="w")
-    input_crear_clave = crear_input(agregar_frame, fila=1, columna=1, padx=5, pady=5, texto_a_mostrar="")
-
-    boton_agregar = crear_boton(agregar_frame, fila=2, columna=1, pady= 30, texto="Agregar", funcion= lambda: agregar_usuario_clave(input_crear_user.get(), input_crear_clave.get(), diccionario, root))
-    boton_agregar.config(bg="lightblue", cursor="hand2")
-    root.mainloop()
 
 def crear_frame(root):
     frame = Frame(root)
@@ -66,8 +53,6 @@ def agregar_usuario_clave(usuario, clave, diccionario, ventana):
         ventana.destroy()
     else:
         messagebox.showerror("Error", "El usuario ya existe")
-    return diccionario
-
 
 def validacion_datos(key, clave, diccionario_alumnos):
     ALUMNOS = diccionario_alumnos
@@ -82,7 +67,6 @@ def validacion_datos(key, clave, diccionario_alumnos):
 
     return datos_validos
 
-
 def mostrar_mensaje(booleano):
     if booleano:
         messagebox.showinfo("Exito","Usuario y Clave Correctos")
@@ -93,6 +77,18 @@ def verificar(usuario, clave, diccionario):
     datos_validos= validacion_datos(usuario, clave, diccionario)
     mostrar_mensaje(datos_validos)
 
+def ventana_agregar(diccionario):
+    root = crear_ventana_agregar()
+    agregar_frame = crear_frame(root)
+    label_crear_user = crear_label(agregar_frame, "Usuario Alumno:", fila=0, columna=0, padx=5, pady=5, posicion="w")
+    input_crear_user = crear_input(agregar_frame, fila=0, columna=1, padx=5, pady=5)
+
+    label_crear_clave = crear_label(agregar_frame, "Clave:", fila=1, columna=0, padx=5, pady=5, posicion="w")
+    input_crear_clave = crear_input(agregar_frame, fila=1, columna=1, padx=5, pady=5, texto_a_mostrar="")
+
+    boton_agregar = crear_boton(agregar_frame, fila=2, columna=1, pady= 30, texto="Agregar", funcion= lambda: agregar_usuario_clave(input_crear_user.get(), input_crear_clave.get(), diccionario, root))
+    boton_agregar.config(bg="lightblue", cursor="hand2")
+    root.mainloop()
 
 def main():
     diccionario_usuarios = obtener_usuarios_claves()
