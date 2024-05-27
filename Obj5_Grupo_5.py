@@ -7,7 +7,7 @@ def crear_ventana_login():
     root.title("Login grupo 5")
     root.geometry("300x130")
     root.resizable(0,0)
-    root.iconbitmap("icono.ico")
+    #root.iconbitmap("icono.ico")
     root.config(bg="steelblue")
     return root
 
@@ -16,7 +16,7 @@ def crear_ventana_agregar():
     root.title("Agregar usuario")
     root.geometry("300x130")
     root.resizable(0,0)
-    root.iconbitmap("icono.ico")
+    #root.iconbitmap("icono.ico")
     root.config(bg="steelblue")
     return root
 
@@ -90,8 +90,7 @@ def ventana_agregar(diccionario):
     boton_agregar.config(bg="lightblue", cursor="hand2")
     root.mainloop()
 
-def main():
-    diccionario_usuarios = obtener_usuarios_claves()
+def ventana_principal(diccionario_usuarios):
     root = crear_ventana_login()
     login_frame = crear_frame(root)
 
@@ -109,6 +108,9 @@ def main():
 
     root.mainloop()
 
+def main():
+    diccionario_usuarios = obtener_usuarios_claves()
+    ventana_principal(diccionario_usuarios)
 
 main()
 
