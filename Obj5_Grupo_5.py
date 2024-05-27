@@ -46,7 +46,7 @@ def obtener_usuarios_claves():
     ALUMNOS = {'Valentin' : "1234", 'Omar': "2030", 'Agustina': "4321", 'Patricio' : "0000", 'Joel': "7777"}
     return ALUMNOS
 
-def agregar_usuario_clave(usuario, clave, diccionario, ventana):
+def agregar_usuario(usuario, clave, diccionario, ventana):
     if usuario not in diccionario:
         diccionario[usuario] = clave
         messagebox.showinfo("Exito", "Usuario agregado correctamente")
@@ -86,7 +86,7 @@ def ventana_agregar(diccionario):
     label_crear_clave = crear_label(agregar_frame, "Clave:", fila=1, columna=0, padx=5, pady=5, posicion="w")
     input_crear_clave = crear_input(agregar_frame, fila=1, columna=1, padx=5, pady=5, texto_a_mostrar="")
 
-    boton_agregar = crear_boton(agregar_frame, fila=2, columna=1, pady= 30, texto="Agregar", funcion= lambda: agregar_usuario_clave(input_crear_user.get(), input_crear_clave.get(), diccionario, root))
+    boton_agregar = crear_boton(agregar_frame, fila=2, columna=1, pady= 30, texto="Agregar", funcion= lambda: agregar_usuario(input_crear_user.get(), input_crear_clave.get(), diccionario, root))
     boton_agregar.config(bg="lightblue", cursor="hand2")
     root.mainloop()
 
